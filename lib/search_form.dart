@@ -14,12 +14,10 @@ import 'single_sliver_list.dart';
 final mapFuture = FutureProvider<List<Stage>>((ref) async {
   return ref.watch(mapRepositoryProvider).getMaps();
 });
-final mapIdNotifier = StateProvider<String?>((ref) => null);
 
 final agentFuture = FutureProvider<List<Agent>>((ref) async {
   return ref.watch(agentRepositoryProvider).getAgents();
 });
-final agentIdNotifier = StateProvider<int?>((ref) => null);
 
 class SearchForm extends HookWidget {
   const SearchForm();
