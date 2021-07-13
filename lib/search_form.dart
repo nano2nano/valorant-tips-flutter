@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:valorant_tips/side_widget.dart';
 
 import 'agent_widget.dart';
 import 'data/repository/agent_repository_impl.dart';
@@ -10,6 +8,7 @@ import 'data/repository/map_repository_impl.dart';
 import 'map_widget.dart';
 import 'model/agent/agent.dart';
 import 'model/stage/stage.dart';
+import 'side_widget.dart';
 import 'single_sliver_list.dart';
 
 final mapFuture = FutureProvider<List<Stage>>((ref) async {
