@@ -9,7 +9,7 @@ import 'single_sliver_list.dart';
 final mapFuture = FutureProvider<List<Stage>>((ref) async {
   return ref.watch(mapRepositoryProvider).getMaps();
 });
-final mapIdNotifier = StateProvider<String?>((ref) => null);
+final mapIdNotifier = StateProvider<int?>((ref) => null);
 
 class MapWidget extends HookWidget {
   const MapWidget();
@@ -61,7 +61,7 @@ class MapTitle extends HookWidget {
     final map = useProvider(currentMap);
     final groupValue = useProvider(mapIdNotifier).state;
 
-    return RadioListTile<String?>(
+    return RadioListTile<int?>(
       title: Text(map.name),
       value: map.id,
       groupValue: groupValue,

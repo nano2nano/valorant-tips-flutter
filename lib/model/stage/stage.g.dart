@@ -8,7 +8,7 @@ part of 'stage.dart';
 
 _$_Stage _$_$_StageFromJson(Map<String, dynamic> json) {
   return _$_Stage(
-    id: json['ID'] as String,
+    id: json['ID'] as int,
     name: json['Name'] as String,
   );
 }

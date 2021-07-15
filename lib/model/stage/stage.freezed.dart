@@ -21,7 +21,7 @@ class _$StageTearOff {
   const _$StageTearOff();
 
   _Stage call(
-      {@JsonKey(name: 'ID') required String id,
+      {@JsonKey(name: 'ID') required int id,
       @JsonKey(name: 'Name') required String name}) {
     return _Stage(
       id: id,
@@ -40,7 +40,7 @@ const $Stage = _$StageTearOff();
 /// @nodoc
 mixin _$Stage {
   @JsonKey(name: 'ID')
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'Name')
   String get name => throw _privateConstructorUsedError;
 
@@ -53,8 +53,7 @@ mixin _$Stage {
 abstract class $StageCopyWith<$Res> {
   factory $StageCopyWith(Stage value, $Res Function(Stage) then) =
       _$StageCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(name: 'ID') String id, @JsonKey(name: 'Name') String name});
+  $Res call({@JsonKey(name: 'ID') int id, @JsonKey(name: 'Name') String name});
 }
 
 /// @nodoc
@@ -74,7 +73,7 @@ class _$StageCopyWithImpl<$Res> implements $StageCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -88,8 +87,7 @@ abstract class _$StageCopyWith<$Res> implements $StageCopyWith<$Res> {
   factory _$StageCopyWith(_Stage value, $Res Function(_Stage) then) =
       __$StageCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {@JsonKey(name: 'ID') String id, @JsonKey(name: 'Name') String name});
+  $Res call({@JsonKey(name: 'ID') int id, @JsonKey(name: 'Name') String name});
 }
 
 /// @nodoc
@@ -110,7 +108,7 @@ class __$StageCopyWithImpl<$Res> extends _$StageCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -131,7 +129,7 @@ class _$_Stage with DiagnosticableTreeMixin implements _Stage {
 
   @override
   @JsonKey(name: 'ID')
-  final String id;
+  final int id;
   @override
   @JsonKey(name: 'Name')
   final String name;
@@ -179,14 +177,14 @@ class _$_Stage with DiagnosticableTreeMixin implements _Stage {
 
 abstract class _Stage implements Stage {
   const factory _Stage(
-      {@JsonKey(name: 'ID') required String id,
+      {@JsonKey(name: 'ID') required int id,
       @JsonKey(name: 'Name') required String name}) = _$_Stage;
 
   factory _Stage.fromJson(Map<String, dynamic> json) = _$_Stage.fromJson;
 
   @override
   @JsonKey(name: 'ID')
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'Name')
   String get name => throw _privateConstructorUsedError;
