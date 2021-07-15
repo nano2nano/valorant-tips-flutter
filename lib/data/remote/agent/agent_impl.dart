@@ -12,7 +12,6 @@ final agentDataSourceProvider =
 class AgentDataSourceImpl implements AgentDataSource {
   @override
   Future<List<Agent>> getAgents() async {
-    print('fetch start');
     var url = Uri.https(
         "valorant-tips.herokuapp.com", '/api/v1/agent', {'q': '{http'});
     var response = await http.get(url);
