@@ -12,7 +12,6 @@ final sideDataSourceProvider =
 class SideDataSourceImpl implements SideDataSource {
   @override
   Future<List<Side>> getSides() async {
-    print('fetch start');
     var url = Uri.https(
         "valorant-tips.herokuapp.com", '/api/v1/side', {'q': '{http'});
     var response = await http.get(url);
