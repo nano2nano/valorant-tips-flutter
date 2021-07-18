@@ -29,7 +29,6 @@ class _$TipTearOff {
       @JsonKey(name: 'Description') required String description,
       @JsonKey(name: 'SideID') required int sideId,
       @JsonKey(name: 'MapID') required int mapId,
-      @JsonKey(name: 'TipID') required int tipId,
       @JsonKey(name: 'Good', defaultValue: 0) int good = 0,
       @JsonKey(name: 'Bad', defaultValue: 0) int bad = 0}) {
     return _Tip(
@@ -41,7 +40,6 @@ class _$TipTearOff {
       description: description,
       sideId: sideId,
       mapId: mapId,
-      tipId: tipId,
       good: good,
       bad: bad,
     );
@@ -73,8 +71,6 @@ mixin _$Tip {
   int get sideId => throw _privateConstructorUsedError;
   @JsonKey(name: 'MapID')
   int get mapId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'TipID')
-  int get tipId => throw _privateConstructorUsedError;
   @JsonKey(name: 'Good', defaultValue: 0)
   int get good => throw _privateConstructorUsedError;
   @JsonKey(name: 'Bad', defaultValue: 0)
@@ -98,7 +94,6 @@ abstract class $TipCopyWith<$Res> {
       @JsonKey(name: 'Description') String description,
       @JsonKey(name: 'SideID') int sideId,
       @JsonKey(name: 'MapID') int mapId,
-      @JsonKey(name: 'TipID') int tipId,
       @JsonKey(name: 'Good', defaultValue: 0) int good,
       @JsonKey(name: 'Bad', defaultValue: 0) int bad});
 }
@@ -121,7 +116,6 @@ class _$TipCopyWithImpl<$Res> implements $TipCopyWith<$Res> {
     Object? description = freezed,
     Object? sideId = freezed,
     Object? mapId = freezed,
-    Object? tipId = freezed,
     Object? good = freezed,
     Object? bad = freezed,
   }) {
@@ -158,10 +152,6 @@ class _$TipCopyWithImpl<$Res> implements $TipCopyWith<$Res> {
           ? _value.mapId
           : mapId // ignore: cast_nullable_to_non_nullable
               as int,
-      tipId: tipId == freezed
-          ? _value.tipId
-          : tipId // ignore: cast_nullable_to_non_nullable
-              as int,
       good: good == freezed
           ? _value.good
           : good // ignore: cast_nullable_to_non_nullable
@@ -188,7 +178,6 @@ abstract class _$TipCopyWith<$Res> implements $TipCopyWith<$Res> {
       @JsonKey(name: 'Description') String description,
       @JsonKey(name: 'SideID') int sideId,
       @JsonKey(name: 'MapID') int mapId,
-      @JsonKey(name: 'TipID') int tipId,
       @JsonKey(name: 'Good', defaultValue: 0) int good,
       @JsonKey(name: 'Bad', defaultValue: 0) int bad});
 }
@@ -212,7 +201,6 @@ class __$TipCopyWithImpl<$Res> extends _$TipCopyWithImpl<$Res>
     Object? description = freezed,
     Object? sideId = freezed,
     Object? mapId = freezed,
-    Object? tipId = freezed,
     Object? good = freezed,
     Object? bad = freezed,
   }) {
@@ -249,10 +237,6 @@ class __$TipCopyWithImpl<$Res> extends _$TipCopyWithImpl<$Res>
           ? _value.mapId
           : mapId // ignore: cast_nullable_to_non_nullable
               as int,
-      tipId: tipId == freezed
-          ? _value.tipId
-          : tipId // ignore: cast_nullable_to_non_nullable
-              as int,
       good: good == freezed
           ? _value.good
           : good // ignore: cast_nullable_to_non_nullable
@@ -277,7 +261,6 @@ class _$_Tip with DiagnosticableTreeMixin implements _Tip {
       @JsonKey(name: 'Description') required this.description,
       @JsonKey(name: 'SideID') required this.sideId,
       @JsonKey(name: 'MapID') required this.mapId,
-      @JsonKey(name: 'TipID') required this.tipId,
       @JsonKey(name: 'Good', defaultValue: 0) this.good = 0,
       @JsonKey(name: 'Bad', defaultValue: 0) this.bad = 0});
 
@@ -308,9 +291,6 @@ class _$_Tip with DiagnosticableTreeMixin implements _Tip {
   @JsonKey(name: 'MapID')
   final int mapId;
   @override
-  @JsonKey(name: 'TipID')
-  final int tipId;
-  @override
   @JsonKey(name: 'Good', defaultValue: 0)
   final int good;
   @override
@@ -319,7 +299,7 @@ class _$_Tip with DiagnosticableTreeMixin implements _Tip {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Tip(id: $id, title: $title, standPosName: $standPosName, aimPosName: $aimPosName, iconName: $iconName, description: $description, sideId: $sideId, mapId: $mapId, tipId: $tipId, good: $good, bad: $bad)';
+    return 'Tip(id: $id, title: $title, standPosName: $standPosName, aimPosName: $aimPosName, iconName: $iconName, description: $description, sideId: $sideId, mapId: $mapId, good: $good, bad: $bad)';
   }
 
   @override
@@ -335,7 +315,6 @@ class _$_Tip with DiagnosticableTreeMixin implements _Tip {
       ..add(DiagnosticsProperty('description', description))
       ..add(DiagnosticsProperty('sideId', sideId))
       ..add(DiagnosticsProperty('mapId', mapId))
-      ..add(DiagnosticsProperty('tipId', tipId))
       ..add(DiagnosticsProperty('good', good))
       ..add(DiagnosticsProperty('bad', bad));
   }
@@ -364,8 +343,6 @@ class _$_Tip with DiagnosticableTreeMixin implements _Tip {
                 const DeepCollectionEquality().equals(other.sideId, sideId)) &&
             (identical(other.mapId, mapId) ||
                 const DeepCollectionEquality().equals(other.mapId, mapId)) &&
-            (identical(other.tipId, tipId) ||
-                const DeepCollectionEquality().equals(other.tipId, tipId)) &&
             (identical(other.good, good) ||
                 const DeepCollectionEquality().equals(other.good, good)) &&
             (identical(other.bad, bad) ||
@@ -383,7 +360,6 @@ class _$_Tip with DiagnosticableTreeMixin implements _Tip {
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(sideId) ^
       const DeepCollectionEquality().hash(mapId) ^
-      const DeepCollectionEquality().hash(tipId) ^
       const DeepCollectionEquality().hash(good) ^
       const DeepCollectionEquality().hash(bad);
 
@@ -408,7 +384,6 @@ abstract class _Tip implements Tip {
       @JsonKey(name: 'Description') required String description,
       @JsonKey(name: 'SideID') required int sideId,
       @JsonKey(name: 'MapID') required int mapId,
-      @JsonKey(name: 'TipID') required int tipId,
       @JsonKey(name: 'Good', defaultValue: 0) int good,
       @JsonKey(name: 'Bad', defaultValue: 0) int bad}) = _$_Tip;
 
@@ -438,9 +413,6 @@ abstract class _Tip implements Tip {
   @override
   @JsonKey(name: 'MapID')
   int get mapId => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'TipID')
-  int get tipId => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'Good', defaultValue: 0)
   int get good => throw _privateConstructorUsedError;

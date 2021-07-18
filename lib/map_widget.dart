@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'data/repository/map_repository_impl.dart';
@@ -11,12 +10,12 @@ final mapFuture = FutureProvider<List<Stage>>((ref) async {
 });
 final mapIdNotifier = StateProvider<int?>((ref) => null);
 
-class MapWidget extends HookWidget {
+class MapWidget extends ConsumerWidget {
   const MapWidget();
 
   @override
-  Widget build(BuildContext context) {
-    var maps = useProvider(mapFuture);
+  Widget build(BuildContext context, WidgetRef ref) {
+    var maps = ref.watch(mapFuture);
     return maps.when(
       data: (maps) => SliverList(
         delegate: SliverChildBuilderDelegate(
@@ -51,21 +50,21 @@ class MapWidget extends HookWidget {
   }
 }
 
-final currentMap = ScopedProvider<Stage>((_) => throw UnimplementedError());
+final currentMap = Provider<Stage>((_) => throw UnimplementedError());
 
-class MapTitle extends HookWidget {
+class MapTitle extends ConsumerWidget {
   const MapTitle();
 
   @override
-  Widget build(BuildContext context) {
-    final map = useProvider(currentMap);
-    final groupValue = useProvider(mapIdNotifier).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final map = ref.watch(currentMap);
+    final groupValue = ref.watch(mapIdNotifier).state;
 
     return RadioListTile<int?>(
       title: Text(map.name),
       value: map.id,
       groupValue: groupValue,
-      onChanged: (mapId) => context.read(mapIdNotifier).state = mapId,
+      onChanged: (mapId) => ref.read(mapIdNotifier).state = mapId,
     );
   }
 }

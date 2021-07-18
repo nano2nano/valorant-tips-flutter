@@ -16,7 +16,6 @@ _$_Tip _$_$_TipFromJson(Map<String, dynamic> json) {
     description: json['Description'] as String,
     sideId: json['SideID'] as int,
     mapId: json['MapID'] as int,
-    tipId: json['TipID'] as int,
     good: json['Good'] as int? ?? 0,
     bad: json['Bad'] as int? ?? 0,
   );
@@ -31,7 +30,6 @@ Map<String, dynamic> _$_$_TipToJson(_$_Tip instance) => <String, dynamic>{
       'Description': instance.description,
       'SideID': instance.sideId,
       'MapID': instance.mapId,
-      'TipID': instance.tipId,
       'Good': instance.good,
       'Bad': instance.bad,
     };

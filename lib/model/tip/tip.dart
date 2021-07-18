@@ -15,7 +15,6 @@ class Tip with _$Tip {
     @JsonKey(name: 'Description') required String description,
     @JsonKey(name: 'SideID') required int sideId,
     @JsonKey(name: 'MapID') required int mapId,
-    @JsonKey(name: 'TipID') required int tipId,
     @JsonKey(name: 'Good', defaultValue: 0) @Default(0) int good,
     @JsonKey(name: 'Bad', defaultValue: 0) @Default(0) int bad,
   }) = _Tip;

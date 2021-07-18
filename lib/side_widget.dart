@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'data/repository/side_repository_impl.dart';
 import 'model/side/side.dart';
@@ -11,12 +10,12 @@ final sideFuture = FutureProvider<List<Side>>((ref) async {
 });
 final sideIdNotifier = StateProvider<int?>((ref) => null);
 
-class SideWidget extends HookWidget {
+class SideWidget extends ConsumerWidget {
   const SideWidget();
 
   @override
-  Widget build(BuildContext context) {
-    var sides = useProvider(sideFuture);
+  Widget build(BuildContext context, WidgetRef ref) {
+    var sides = ref.watch(sideFuture);
     return sides.when(
       data: (sides) => SliverList(
         delegate: SliverChildBuilderDelegate(
@@ -51,21 +50,21 @@ class SideWidget extends HookWidget {
   }
 }
 
-final currentSide = ScopedProvider<Side>((_) => throw UnimplementedError());
+final currentSide = Provider<Side>((_) => throw UnimplementedError());
 
-class SideTile extends HookWidget {
+class SideTile extends ConsumerWidget {
   const SideTile();
 
   @override
-  Widget build(BuildContext context) {
-    final side = useProvider(currentSide);
-    final groupValue = useProvider(sideIdNotifier).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final side = ref.watch(currentSide);
+    final groupValue = ref.watch(sideIdNotifier).state;
 
     return RadioListTile<int?>(
       title: Text(side.name),
       value: side.id,
       groupValue: groupValue,
-      onChanged: (sideId) => context.read(sideIdNotifier).state = sideId,
+      onChanged: (sideId) => ref.read(sideIdNotifier).state = sideId,
     );
   }
 }
