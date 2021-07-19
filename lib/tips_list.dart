@@ -12,13 +12,15 @@ class TipsList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final tips = ref.watch(providedTips);
-    return ListView.builder(
-      itemBuilder: (context, index) => ProviderScope(
-        overrides: [providedTip.overrideWithValue(tips[index])],
-        child: const TipWidget(),
-      ),
-      itemCount: tips.length,
-    );
+    return tips.isEmpty
+        ? const Text('No data')
+        : ListView.builder(
+            itemBuilder: (context, index) => ProviderScope(
+              overrides: [providedTip.overrideWithValue(tips[index])],
+              child: const TipWidget(),
+            ),
+            itemCount: tips.length,
+          );
   }
 }
 
