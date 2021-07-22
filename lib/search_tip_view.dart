@@ -79,38 +79,51 @@ class SearchTipView extends ConsumerWidget {
           ),
           ProviderScope(
             overrides: [
-              listItem.overrideWithValue(
-                TextButton(
-                  onPressed: () {
-                    final abilityId = ref.read(abilityIdNotifier).state;
-                    final mapId = ref.read(mapIdNotifier).state;
-                    final sideId = ref.read(sideIdNotifier).state;
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProviderScope(
-                          overrides: [
-                            searchParam.overrideWithValue(
-                              SearchParam(
-                                abilityId: abilityId,
-                                mapId: mapId,
-                                sideId: sideId,
-                              ),
-                            )
-                          ],
-                          child: const TipsView(),
-                        ),
-                      ),
-                    );
-                  },
-                  child: const Text('検索'),
-                ),
-              ),
+              listItem.overrideWithValue(const SearchButton()),
             ],
             child: const SingleSliverList(),
           ),
         ],
       ),
+    );
+  }
+}
+
+class SearchButton extends ConsumerWidget {
+  const SearchButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ElevatedButton(
+      onPressed: () {
+        final abilityId = ref.read(abilityIdNotifier).state;
+        final mapId = ref.read(mapIdNotifier).state;
+        final sideId = ref.read(sideIdNotifier).state;
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProviderScope(
+              overrides: [
+                searchParam.overrideWithValue(
+                  SearchParam(
+                    abilityId: abilityId,
+                    mapId: mapId,
+                    sideId: sideId,
+                  ),
+                )
+              ],
+              child: const TipsView(),
+            ),
+          ),
+        );
+      },
+      child: const Text(
+        '検索',
+        style: TextStyle(
+          fontSize: 20,
+        ),
+      ),
+      style: ElevatedButton.styleFrom(minimumSize: const Size(88, 50)),
     );
   }
 }
