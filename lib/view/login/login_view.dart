@@ -1,13 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'data/repository/auth_repository.dart';
-
-class LoginView extends ConsumerWidget {
+class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final emailInputController = TextEditingController();
     final passwordInputController = TextEditingController();
 
@@ -40,29 +38,25 @@ class LoginView extends ConsumerWidget {
                 Center(
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: ElevatedButton(
-                          child: const Text('ログイン'),
-                          onPressed: () async {
-                            var email = emailInputController.text;
-                            var password = passwordInputController.text;
-                            await ref
-                                .read(authRepositoryProvider)
-                                .signInAnonymously();
-                            Navigator.pop(context);
-                          },
+                      const Padding(
+                        padding: EdgeInsets.all(10),
+                        child: CommonButton(
+                          // onPressed: () async {
+                          //   var email = emailInputController.text;
+                          //   var password = passwordInputController.text;
+                          //   await FirebaseAuth.instance.signInAnonymously();
+                          // },
+                          onPressed: null,
+                          child: Text('ログイン'),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(10),
-                        child: ElevatedButton(
+                        child: CommonButton(
                           onPressed: () async {
-                            await ref
-                                .read(authRepositoryProvider)
-                                .signInAnonymously();
+                            await FirebaseAuth.instance.signInAnonymously();
                           },
-                          child: const Text("ログインせずに利用"),
+                          child: const Text('ログインせずに利用する'),
                         ),
                       ),
                     ],
@@ -73,6 +67,31 @@ class LoginView extends ConsumerWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class CommonButton extends StatelessWidget {
+  const CommonButton({
+    Key? key,
+    required this.onPressed,
+    required this.child,
+    this.style,
+  }) : super(key: key);
+
+  final VoidCallback? onPressed;
+  final Widget? child;
+  final ButtonStyle? style;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: child,
+        style: style,
+      ),
+      height: 40,
+      width: 200,
     );
   }
 }
