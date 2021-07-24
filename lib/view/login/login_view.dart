@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../drawer/drawer.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -10,15 +11,7 @@ class LoginView extends StatelessWidget {
     final passwordInputController = TextEditingController();
 
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            const ListTile(
-              title: Text('サインアウト'),
-            ),
-          ],
-        ),
-      ),
+      drawer: const MyDrawer(),
       body: Center(
         child: Form(
           child: SingleChildScrollView(
