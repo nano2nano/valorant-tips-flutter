@@ -16,7 +16,8 @@ class TipDataSourceImpl implements TipDataSource {
     final queryParam = {
       'ability_id': param.abilityId == null ? '' : '${param.abilityId}',
       'map_id': param.mapId == null ? '' : '${param.mapId}',
-      'side_id': param.sideId == null ? '' : '${param.sideId}',
+      'side_id':
+          param.sideId == null || param.sideId == 3 ? '' : '${param.sideId}',
     };
     var url =
         Uri.https("valorant-tips.herokuapp.com", '/api/v1/tip', queryParam);
