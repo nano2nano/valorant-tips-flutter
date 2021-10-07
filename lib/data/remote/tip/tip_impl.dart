@@ -10,6 +10,7 @@ import 'tip.dart';
 final tipDataSourceProvider =
     Provider<TipDataSource>((ref) => TipDataSourceImpl());
 
+// sideId "all" == 3
 class TipDataSourceImpl implements TipDataSource {
   @override
   Future<List<Tip>> getTips(SearchParam param) async {
