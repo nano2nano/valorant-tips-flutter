@@ -35,6 +35,9 @@ class SearchTipView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("tipsを検索"),
+      ),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[

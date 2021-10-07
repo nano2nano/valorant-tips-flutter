@@ -10,6 +10,9 @@ class LoginView extends StatelessWidget {
     final passwordInputController = TextEditingController();
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("ログイン"),
+      ),
       body: Center(
         child: Form(
           child: SingleChildScrollView(
