@@ -20,6 +20,9 @@ class TipsView extends ConsumerWidget {
     final param = ref.watch(searchParam);
     final tips = ref.watch(tipsFuture(param));
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("tips"),
+      ),
       body: tips.when(
         data: (tips) {
           return ProviderScope(

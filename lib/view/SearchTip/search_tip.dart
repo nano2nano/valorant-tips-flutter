@@ -52,6 +52,9 @@ class SearchTip extends HookConsumerWidget {
     final abilities = ref.watch(searchTipProvider).getAbilities(agentId);
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("tipsを検索"),
+      ),
       drawer: const MyDrawer(),
       body: CustomScrollView(
         slivers: [
