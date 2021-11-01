@@ -28,7 +28,7 @@ class AgentFormWidget extends ConsumerWidget {
           childCount: agents.length,
         ),
       ),
-      loading: () => SliverList(
+      loading: (_) => SliverList(
         delegate: SliverChildListDelegate(
           [
             const Center(
@@ -37,7 +37,7 @@ class AgentFormWidget extends ConsumerWidget {
           ],
         ),
       ),
-      error: (err, stack) => SliverList(
+      error: (err, stack, _) => SliverList(
         delegate: SliverChildListDelegate([Text('err: $err')]),
       ),
     );

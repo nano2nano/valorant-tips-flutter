@@ -19,10 +19,10 @@ class CheckLogin extends ConsumerWidget {
           return const FirstView();
         }
       },
-      loading: () => const Center(
+      loading: (_) => const Center(
         child: CircularProgressIndicator(),
       ),
-      error: (err, stack) => Text('Error:$err'),
+      error: (err, stack, _) => Text('Error:$err'),
     );
   }
 }
