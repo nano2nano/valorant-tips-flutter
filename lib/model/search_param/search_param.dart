@@ -8,7 +8,7 @@ part 'search_param.g.dart';
 class SearchParam with _$SearchParam {
   const factory SearchParam({
     @JsonKey(name: 'ability_id') required int? abilityId,
-    @JsonKey(name: 'map_id') required int? mapId,
+    @JsonKey(name: 'map_id') required String? mapId,
     @JsonKey(name: 'side_id') required int? sideId,
   }) = _SearchParam;
   factory SearchParam.fromJson(Map<String, dynamic> json) =>

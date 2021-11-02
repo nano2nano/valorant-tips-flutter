@@ -19,7 +19,7 @@ final selectedAbilityIdStateProvider = StateProvider<int?>((ref) {
   return null;
 });
 
-final selectedMapIdStateProvider = StateProvider<int?>((ref) {
+final selectedMapIdStateProvider = StateProvider<String?>((ref) {
   return null;
 });
 

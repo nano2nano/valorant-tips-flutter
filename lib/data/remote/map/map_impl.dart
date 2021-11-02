@@ -13,11 +13,12 @@ class MapDataSourceImpl implements MapDataSource {
   @override
   Future<List<Stage>> getMaps() async {
     final url =
-        Uri.https('valorant-tips.herokuapp.com', '/api/v1/map', {'q': 'http'});
+        Uri.https('valorant-api.com', '/v1/maps', {'language': "ja-JP"});
     final response = await http.get(url);
     if (response.statusCode == 200) {
-      final jsonResponse = convert.json.decode(response.body) as List<dynamic>;
-      final maps = jsonResponse.map((e) => Stage.fromJson(e)).toList();
+      final jsonResponse = convert.json.decode(response.body);
+      final data = jsonResponse["data"] as List<dynamic>;
+      final maps = data.map((e) => Stage.fromJson(e)).toList();
       return maps;
     } else {
       throw Exception('Failed to fetch maps');

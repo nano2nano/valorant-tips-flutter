@@ -22,7 +22,7 @@ class _$SearchParamTearOff {
 
   _SearchParam call(
       {@JsonKey(name: 'ability_id') required int? abilityId,
-      @JsonKey(name: 'map_id') required int? mapId,
+      @JsonKey(name: 'map_id') required String? mapId,
       @JsonKey(name: 'side_id') required int? sideId}) {
     return _SearchParam(
       abilityId: abilityId,
@@ -44,7 +44,7 @@ mixin _$SearchParam {
   @JsonKey(name: 'ability_id')
   int? get abilityId => throw _privateConstructorUsedError;
   @JsonKey(name: 'map_id')
-  int? get mapId => throw _privateConstructorUsedError;
+  String? get mapId => throw _privateConstructorUsedError;
   @JsonKey(name: 'side_id')
   int? get sideId => throw _privateConstructorUsedError;
 
@@ -61,7 +61,7 @@ abstract class $SearchParamCopyWith<$Res> {
       _$SearchParamCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'ability_id') int? abilityId,
-      @JsonKey(name: 'map_id') int? mapId,
+      @JsonKey(name: 'map_id') String? mapId,
       @JsonKey(name: 'side_id') int? sideId});
 }
 
@@ -87,7 +87,7 @@ class _$SearchParamCopyWithImpl<$Res> implements $SearchParamCopyWith<$Res> {
       mapId: mapId == freezed
           ? _value.mapId
           : mapId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       sideId: sideId == freezed
           ? _value.sideId
           : sideId // ignore: cast_nullable_to_non_nullable
@@ -105,7 +105,7 @@ abstract class _$SearchParamCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: 'ability_id') int? abilityId,
-      @JsonKey(name: 'map_id') int? mapId,
+      @JsonKey(name: 'map_id') String? mapId,
       @JsonKey(name: 'side_id') int? sideId});
 }
 
@@ -133,7 +133,7 @@ class __$SearchParamCopyWithImpl<$Res> extends _$SearchParamCopyWithImpl<$Res>
       mapId: mapId == freezed
           ? _value.mapId
           : mapId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       sideId: sideId == freezed
           ? _value.sideId
           : sideId // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ class _$_SearchParam with DiagnosticableTreeMixin implements _SearchParam {
   final int? abilityId;
   @override
   @JsonKey(name: 'map_id')
-  final int? mapId;
+  final String? mapId;
   @override
   @JsonKey(name: 'side_id')
   final int? sideId;
@@ -212,7 +212,7 @@ class _$_SearchParam with DiagnosticableTreeMixin implements _SearchParam {
 abstract class _SearchParam implements SearchParam {
   const factory _SearchParam(
       {@JsonKey(name: 'ability_id') required int? abilityId,
-      @JsonKey(name: 'map_id') required int? mapId,
+      @JsonKey(name: 'map_id') required String? mapId,
       @JsonKey(name: 'side_id') required int? sideId}) = _$_SearchParam;
 
   factory _SearchParam.fromJson(Map<String, dynamic> json) =
@@ -223,7 +223,7 @@ abstract class _SearchParam implements SearchParam {
   int? get abilityId => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'map_id')
-  int? get mapId => throw _privateConstructorUsedError;
+  String? get mapId => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'side_id')
   int? get sideId => throw _privateConstructorUsedError;

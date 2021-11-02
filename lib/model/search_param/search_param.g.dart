@@ -9,7 +9,7 @@ part of 'search_param.dart';
 _$_SearchParam _$_$_SearchParamFromJson(Map<String, dynamic> json) {
   return _$_SearchParam(
     abilityId: json['ability_id'] as int?,
-    mapId: json['map_id'] as int?,
+    mapId: json['map_id'] as String?,
     sideId: json['side_id'] as int?,
   );
 }
