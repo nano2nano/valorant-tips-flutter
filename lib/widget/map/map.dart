@@ -22,7 +22,17 @@ class MapForm extends ConsumerWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           return RadioListTile<String?>(
-            title: Text(maps[index].displayName),
+            title: Stack(
+              children: [
+                Image(image: NetworkImage(maps[index].listViewIcon)),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200.withOpacity(0.5),
+                  ),
+                  child: Text(maps[index].displayName),
+                )
+              ],
+            ),
             value: maps[index].uuid,
             groupValue: groupValue,
             onChanged: (mapId) => ref.read(mapIdNotifier).state = mapId,
