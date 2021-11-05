@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '../../data/provider/constant.dart';
 
 import '../../model/stage/stage.dart';
 
@@ -16,8 +17,7 @@ class MapForm extends ConsumerWidget {
     final mapIdNotifier = ref.watch(mapIdNotifierProvider);
     final maps = ref.watch(mapsProvider);
     final groupValue = ref.watch(mapIdNotifier).state;
-    maps.removeWhere(
-        (item) => item.uuid == "ee613ee9-28b7-4beb-9666-08db13bb2244");
+    maps.removeWhere((item) => item.uuid == ref.watch(rangeUUIDProvider));
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
