@@ -15,7 +15,7 @@ class AbilityForm extends ConsumerWidget {
   SliverList build(BuildContext context, WidgetRef ref) {
     final abilityIdNotifier = ref.watch(abilityIdNotifierProvider);
     final abilities = ref.watch(abilitiesProvider);
-    final groupValue = ref.watch(abilityIdNotifier).state;
+    final groupValue = ref.watch(abilityIdNotifier);
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
@@ -24,7 +24,7 @@ class AbilityForm extends ConsumerWidget {
             value: abilities[index].id,
             groupValue: groupValue,
             onChanged: (abilityId) =>
-                ref.read(abilityIdNotifier).state = abilityId,
+                ref.read(abilityIdNotifier.state).state = abilityId,
           );
         },
         childCount: abilities.length,

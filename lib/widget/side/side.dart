@@ -14,7 +14,7 @@ class SideForm extends ConsumerWidget {
   SliverList build(BuildContext context, WidgetRef ref) {
     final sideIdNotifier = ref.watch(sideIdNotifierProvider);
     final sides = ref.watch(sidesProvider);
-    final groupValue = ref.watch(sideIdNotifier).state;
+    final groupValue = ref.watch(sideIdNotifier);
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
@@ -22,7 +22,8 @@ class SideForm extends ConsumerWidget {
             title: Text(sides[index].name),
             value: sides[index].id,
             groupValue: groupValue,
-            onChanged: (sideId) => ref.read(sideIdNotifier).state = sideId,
+            onChanged: (sideId) =>
+                ref.read(sideIdNotifier.state).state = sideId,
           );
         },
         childCount: sides.length,

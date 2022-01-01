@@ -16,7 +16,7 @@ class MapForm extends ConsumerWidget {
   SliverList build(BuildContext context, WidgetRef ref) {
     final mapIdNotifier = ref.watch(mapIdNotifierProvider);
     final maps = ref.watch(mapsProvider);
-    final groupValue = ref.watch(mapIdNotifier).state;
+    final groupValue = ref.watch(mapIdNotifier);
     maps.removeWhere((item) => item.uuid == ref.watch(rangeUUIDProvider));
     return SliverList(
       delegate: SliverChildBuilderDelegate(
@@ -35,7 +35,7 @@ class MapForm extends ConsumerWidget {
             ),
             value: maps[index].uuid,
             groupValue: groupValue,
-            onChanged: (mapId) => ref.read(mapIdNotifier).state = mapId,
+            onChanged: (mapId) => ref.read(mapIdNotifier.state).state = mapId,
           );
         },
         childCount: maps.length,

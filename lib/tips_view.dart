@@ -30,10 +30,10 @@ class TipsView extends ConsumerWidget {
             child: const TipsList(),
           );
         },
-        loading: (_) => const Center(
+        loading: () => const Center(
           child: CircularProgressIndicator(),
         ),
-        error: (err, stack, _) => Text('err: $err'),
+        error: (error, stackTrace) => Text("error:$error"),
       ),
     );
   }

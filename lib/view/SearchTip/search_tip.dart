@@ -48,7 +48,7 @@ class SearchTip extends HookConsumerWidget {
     final maps = ref.watch(searchTipProvider).maps!;
     final sides = ref.watch(searchTipProvider).sides!;
 
-    final agentId = ref.watch(selectedAgentIdStateProvider).state;
+    final agentId = ref.watch(selectedAgentIdStateProvider);
     final abilities = ref.watch(searchTipProvider).getAbilities(agentId);
 
     return Scaffold(
@@ -117,9 +117,9 @@ class SearchButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
       onPressed: () {
-        final abilityId = ref.read(selectedAbilityIdStateProvider).state;
-        final mapId = ref.read(selectedMapIdStateProvider).state;
-        final sideId = ref.read(selectedSideIdStateProvider).state;
+        final abilityId = ref.read(selectedAbilityIdStateProvider);
+        final mapId = ref.read(selectedMapIdStateProvider);
+        final sideId = ref.read(selectedSideIdStateProvider);
         Navigator.push(
           context,
           MaterialPageRoute(
