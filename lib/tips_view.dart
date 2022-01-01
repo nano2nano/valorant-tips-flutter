@@ -23,17 +23,19 @@ class TipsView extends ConsumerWidget {
       appBar: AppBar(
         title: const Text("tips"),
       ),
-      body: tips.when(
-        data: (tips) {
-          return ProviderScope(
-            overrides: [providedTips.overrideWithValue(tips)],
-            child: const TipsList(),
-          );
-        },
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
+      body: SafeArea(
+        child: tips.when(
+          data: (tips) {
+            return ProviderScope(
+              overrides: [providedTips.overrideWithValue(tips)],
+              child: const TipsList(),
+            );
+          },
+          loading: () => const Center(
+            child: CircularProgressIndicator(),
+          ),
+          error: (error, stackTrace) => Text("error:$error"),
         ),
-        error: (error, stackTrace) => Text("error:$error"),
       ),
     );
   }

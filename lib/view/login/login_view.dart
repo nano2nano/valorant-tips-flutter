@@ -13,59 +13,61 @@ class LoginView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("ログイン"),
       ),
-      body: Center(
-        child: Form(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                const SizedBox(height: 24.0),
-                TextFormField(
-                  controller: emailInputController,
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: 'Email',
+      body: SafeArea(
+        child: Center(
+          child: Form(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  const SizedBox(height: 24.0),
+                  TextFormField(
+                    controller: emailInputController,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'Email',
+                    ),
                   ),
-                ),
-                const SizedBox(height: 24.0),
-                TextFormField(
-                  controller: passwordInputController,
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: 'Password',
+                  const SizedBox(height: 24.0),
+                  TextFormField(
+                    controller: passwordInputController,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'Password',
+                    ),
+                    obscureText: true,
                   ),
-                  obscureText: true,
-                ),
-                const SizedBox(height: 24.0),
-                Center(
-                  child: Column(
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.all(10),
-                        child: CommonButton(
-                          // onPressed: () async {
-                          //   var email = emailInputController.text;
-                          //   var password = passwordInputController.text;
-                          //   await FirebaseAuth.instance.signInAnonymously();
-                          // },
-                          onPressed: null,
-                          child: Text('ログイン'),
+                  const SizedBox(height: 24.0),
+                  Center(
+                    child: Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.all(10),
+                          child: CommonButton(
+                            // onPressed: () async {
+                            //   var email = emailInputController.text;
+                            //   var password = passwordInputController.text;
+                            //   await FirebaseAuth.instance.signInAnonymously();
+                            // },
+                            onPressed: null,
+                            child: Text('ログイン'),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: CommonButton(
-                          onPressed: () async {
-                            await FirebaseAuth.instance.signInAnonymously();
-                          },
-                          child: const Text('ログインせずに利用する'),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: CommonButton(
+                            onPressed: () async {
+                              await FirebaseAuth.instance.signInAnonymously();
+                            },
+                            child: const Text('ログインせずに利用する'),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

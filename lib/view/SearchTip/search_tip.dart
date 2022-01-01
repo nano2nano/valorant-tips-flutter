@@ -38,8 +38,10 @@ class SearchTip extends HookConsumerWidget {
 
     if (!ref.watch(searchTipProvider).isLoaded) {
       return const Scaffold(
-        body: Center(
-          child: CircularProgressIndicator(),
+        body: SafeArea(
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
         ),
       );
     }
@@ -56,55 +58,57 @@ class SearchTip extends HookConsumerWidget {
         title: const Text("tipsを検索"),
       ),
       drawer: const MyDrawer(),
-      body: CustomScrollView(
-        slivers: [
-          const TitleWidget('エージェント'),
-          ProviderScope(
-            overrides: [
-              agentsProvider.overrideWithValue(agents),
-              agentIdNotifierProvider
-                  .overrideWithValue(selectedAgentIdStateProvider),
-            ],
-            child: const AgentForm(),
-          ),
-          const TitleWidget('アビリティ'),
-          abilities == null
-              ? SliverList(
-                  delegate:
-                      SliverChildListDelegate([const Text('エージェントを選択してください')]),
-                )
-              : ProviderScope(
-                  overrides: [
-                    abilitiesProvider.overrideWithValue(abilities),
-                    abilityIdNotifierProvider
-                        .overrideWithValue(selectedAbilityIdStateProvider),
-                  ],
-                  child: const AbilityForm(),
-                ),
-          const TitleWidget('マップ'),
-          ProviderScope(
-            overrides: [
-              mapsProvider.overrideWithValue(maps),
-              mapIdNotifierProvider
-                  .overrideWithValue(selectedMapIdStateProvider),
-            ],
-            child: const MapForm(),
-          ),
-          const TitleWidget('攻守'),
-          ProviderScope(
-            overrides: [
-              sidesProvider.overrideWithValue(sides),
-              sideIdNotifierProvider
-                  .overrideWithValue(selectedSideIdStateProvider),
-            ],
-            child: const SideForm(),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [const SearchButton()],
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            const TitleWidget('エージェント'),
+            ProviderScope(
+              overrides: [
+                agentsProvider.overrideWithValue(agents),
+                agentIdNotifierProvider
+                    .overrideWithValue(selectedAgentIdStateProvider),
+              ],
+              child: const AgentForm(),
             ),
-          ),
-        ],
+            const TitleWidget('アビリティ'),
+            abilities == null
+                ? SliverList(
+                    delegate: SliverChildListDelegate(
+                        [const Text('エージェントを選択してください')]),
+                  )
+                : ProviderScope(
+                    overrides: [
+                      abilitiesProvider.overrideWithValue(abilities),
+                      abilityIdNotifierProvider
+                          .overrideWithValue(selectedAbilityIdStateProvider),
+                    ],
+                    child: const AbilityForm(),
+                  ),
+            const TitleWidget('マップ'),
+            ProviderScope(
+              overrides: [
+                mapsProvider.overrideWithValue(maps),
+                mapIdNotifierProvider
+                    .overrideWithValue(selectedMapIdStateProvider),
+              ],
+              child: const MapForm(),
+            ),
+            const TitleWidget('攻守'),
+            ProviderScope(
+              overrides: [
+                sidesProvider.overrideWithValue(sides),
+                sideIdNotifierProvider
+                    .overrideWithValue(selectedSideIdStateProvider),
+              ],
+              child: const SideForm(),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [const SearchButton()],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
